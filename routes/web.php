@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InventarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contacto/{codigo?}', function ($codigo = null) {
-    if ($codigo==123){
-        $nombre = "kevin";
-        $correo = "kevin@gmail.com";
-    }
-    else{
-        $nombre = "";
-        $correo = "";
-        }
-    return view('contacto', compact('nombre', 'correo'));
-});
+//Route::get('/inventario', function () {
+//    return view('inventario.index');
+//});
+
+//Route::get('/inventario/create',[InventarioController::class, 'create']);
+
+Route::resource('inventario',InventarioController::class);
+
+
+

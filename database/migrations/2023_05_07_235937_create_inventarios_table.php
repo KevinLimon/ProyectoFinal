@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('inventarios', function (Blueprint $table) {
             $table->id();
             $table->string("Nombre");
-            $table->int("Cantidad");
+            $table->float("Cantidad");
             $table->string("Unidad");
             $table->date("Fecha de caducidad");
             $table->string("Proveedor");
