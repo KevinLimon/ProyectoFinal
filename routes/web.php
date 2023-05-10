@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contacto/{codigo?}', function ($codigo = null) {
+    if ($codigo==123){
+        $nombre = "kevin";
+        $correo = "kevin@gmail.com";
+    }
+    else{
+        $nombre = "";
+        $correo = "";
+        }
+    return view('contacto', compact('nombre', 'correo'));
+});
