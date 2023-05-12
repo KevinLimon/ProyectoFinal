@@ -12,7 +12,8 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        //
+        $datos["inventario"] = Inventario::Paginate(5);
+        return view('inventario.index',$datos);
     }
 
     /**
@@ -28,7 +29,9 @@ class InventarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosInventario = request()->except('_token');
+        Inventario::insert($datosInventario);
+        return response()->json($datosInventario);   
     }
 
     /**
@@ -42,24 +45,29 @@ class InventarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Inventario $inventario)
+    public function edit($id)
     {
-        //
+        $inventario=Inventario::findOrFail($id);
+        return view('inventario.edit', compact('inventario'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Inventario $inventario)
+    public function update(Request $request, $id)
     {
-        //
+        $datosInventario = request()->except(['_token', '_method']);
+        Inventario::where('id','=', $id)->update($datosInventario);
+        $inventario=Inventario::findOrFail($id);
+        return view('inventario.edit', compact('inventario'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Inventario $inventario)
+    public function destroy($id)
     {
-        //
+        Inventario::destroy($id);
+        return redirect('inventario');
     }
 }

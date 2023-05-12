@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("Nombre");
             $table->float("Cantidad");
             $table->string("Unidad");
-            $table->date("Fecha de caducidad");
+            $table->date("Fecha");
             $table->string("Proveedor");
             $table->timestamps();
             
