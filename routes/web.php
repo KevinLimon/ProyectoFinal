@@ -15,7 +15,7 @@ use App\Http\Controllers\InventarioController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 //Route::get('/inventario', function () {
@@ -28,3 +28,7 @@ Route::resource('inventario',InventarioController::class);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
