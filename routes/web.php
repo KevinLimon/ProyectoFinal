@@ -31,4 +31,8 @@ Route::resource('inventario',InventarioController::class);
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [InventarioController::class, 'index'])->name('home');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', [InventarioController::class, 'index'])->name('home');
+});
