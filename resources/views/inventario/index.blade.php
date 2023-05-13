@@ -7,7 +7,9 @@
 {{Session::get('mensaje')}}
 @endif
 
-<a href = "{{ url('inventario/create')}}"> Registrar nuevo producto</a>
+<a href = "{{ url('inventario/create')}}" class="btn btn-success"> Registrar nuevo producto</a>
+<br>
+<br>
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
@@ -31,14 +33,14 @@
                 <td>{{ $inv->Proveedor }}</td>
                 <td> 
                     
-                <a href="{{ url('/inventario/'.$inv->id.'/edit/')}}">
+                <a href="{{ url('/inventario/'.$inv->id.'/edit/')}}" class="btn btn-warning">
                     Editar
                 </a>
 
-                <form method="post" action="{{ url('/inventario/'.$inv->id)}}">
+                <form method="post" action="{{ url('/inventario/'.$inv->id)}}" class="d-inline">
                     @csrf
                     {{ method_field('DELETE')}}
-                    <input type="submit" value="Borrar" onclick="return confirm('¿Quieres Borrar?')">
+                    <input type="submit" value="Borrar" class="btn btn-danger" onclick="return confirm('¿Quieres Borrar?')">
                 </form>
                 </td>
             </tr>

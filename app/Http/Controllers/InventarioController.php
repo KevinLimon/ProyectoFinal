@@ -29,6 +29,20 @@ class InventarioController extends Controller
      */
     public function store(Request $request)
     {
+        $campos = [
+        'Nombre'=>'required|string|max:50',
+        'Cantidad'=>'required|float|max:20',
+        'Unidad'=>'required',
+        'Fecha'=>'required|date',
+        'Proveedor'=>'required|string|max:50',
+        ];
+
+        $mensaje = [
+            'required'=>'El :attribute es requerido'
+        ];
+
+        $this->validate($request, $campos, $mensaje);
+
         $datosInventario = request()->except('_token');
         Inventario::insert($datosInventario);
         return redirect('inventario')->with('mensaje', 'Producto añadido con exito');
