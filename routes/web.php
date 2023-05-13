@@ -24,12 +24,9 @@ Route::get('/', function () {
 
 //Route::get('/inventario/create',[InventarioController::class, 'create']);
 
-Route::resource('inventario',InventarioController::class);
+Route::resource('inventario',InventarioController::class)->middleware('auth');
 
-
-
-
-Auth::routes();
+Auth::routes(['reset'=>false]);
 
 Route::get('/home', [InventarioController::class, 'index'])->name('home');
 
