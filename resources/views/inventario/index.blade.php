@@ -1,4 +1,7 @@
-mostrar el inventario/index
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
 
 @if (Session::has('mensaje'))
 {{Session::get('mensaje')}}
@@ -43,3 +46,6 @@ mostrar el inventario/index
         @endforeach
     </tbody>
 </table>
+</div>
+
+@endsection
