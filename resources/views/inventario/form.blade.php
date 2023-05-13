@@ -1,5 +1,5 @@
 
-    
+    <h1>{{$modo}} producto</h1>
 
     <label for="Nombre">  Nombre  </label> <br>
     <input type="text" name="Nombre" id="Nombre" value="{{ isset($inventario->Nombre)? $inventario->Nombre:''}}"> <br>
@@ -21,4 +21,6 @@
     <label for="Nombre">  Proveedor  </label> <br>
     <input type="text" name="Proveedor" id="Proveedor" value="{{ isset($inventario->Proveedor)? $inventario->Proveedor:'' }}"> <br> <br>
 
-    <input type="submit" value="Guardar datos">
+    <input type="submit" value="{{ $modo }} datos">
+
+    <a href = "{{ url('inventario/')}}"> Regresar </a>

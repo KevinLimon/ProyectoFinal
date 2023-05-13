@@ -31,7 +31,8 @@ class InventarioController extends Controller
     {
         $datosInventario = request()->except('_token');
         Inventario::insert($datosInventario);
-        return response()->json($datosInventario);   
+        return redirect('inventario')->with('mensaje', 'Producto añadido con exito');
+        //return response()->json($datosInventario);   
     }
 
     /**
@@ -68,6 +69,6 @@ class InventarioController extends Controller
     public function destroy($id)
     {
         Inventario::destroy($id);
-        return redirect('inventario');
+        return redirect('inventario')->with('mensaje', 'Producto borrado con exito');
     }
 }

@@ -1,5 +1,10 @@
 mostrar el inventario/index
 
+@if (Session::has('mensaje'))
+{{Session::get('mensaje')}}
+@endif
+
+<a href = "{{ url('inventario/create')}}"> Registrar nuevo producto</a>
 <table class="table table-light">
     <thead class="thead-light">
         <tr>
