@@ -15,17 +15,17 @@
     <div class="form-group>
 
     <label for="Nombre">  Nombre  </label> <br>
-    <input type="text" class="form-control" name="Nombre" id="Nombre" value="{{ isset($inventario->Nombre)? $inventario->Nombre:''}}"> 
+    <input type="text" class="form-control" name="Nombre" id="Nombre" value="{{ isset($inventario->Nombre)? $inventario->Nombre:old('Nombre')}}"> 
 
     </div> 
 
     <div class="form-group>
     <label for="Nombre">  Cantidad  </label> 
-    <input type="text" class="form-control" name="Cantidad" id="Cantidad" value="{{ isset($inventario->Cantidad)? $inventario->Cantidad:'' }}"> 
+    <input type="text" class="form-control" name="Cantidad" id="Cantidad" value="{{ isset($inventario->Cantidad)? $inventario->Cantidad:old('Cantidad') }}"> 
     </div>
     <div class="form-group>
     <label for="Nombre">  Unidad  </label> 
-    <select id="Unidad" class="form-control" name="Unidad" value="{{ isset($inventario->Unidad)? $inventario->Unidad:'Kg' }}">
+    <select id="Unidad" class="form-control" name="Unidad" value="{{ isset($inventario->Unidad)? $inventario->Unidad:old('Unidad') }}">
         <option value="Kg" id="Kg">  Kg  </option>
         <option value="Mg" id="Mg">  Mg  </option>
         <option value="L" id="L">  L  </option>
@@ -35,12 +35,12 @@
 
     <div class="form-group>
     <label for="Nombre">  Fecha de caducidad  </label> <br>
-    <input type="date" name="Fecha" class="form-control" id="Fecha" value="{{ isset($inventario->Fecha)? $inventario->Fecha:'$fecha' }}"> 
+    <input type="date" name="Fecha" class="form-control" id="Fecha" value="{{ isset($inventario->Fecha)? $inventario->Fecha:old('Fecha') }}"> 
     </div>
 
     <div class="form-group>
     <label for="Nombre">  Proveedor  </label> <br>
-    <input type="text" name="Proveedor" class="form-control" id="Proveedor" value="{{ isset($inventario->Proveedor)? $inventario->Proveedor:'' }}"> <br> <br>
+    <input type="text" name="Proveedor" class="form-control" id="Proveedor" value="{{ isset($inventario->Proveedor)? $inventario->Proveedor:old('Proveedor') }}"> <br> <br>
     </div>
     
     <input class="btn btn-success" type="submit" value="{{ $modo }} datos">

@@ -12,7 +12,7 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $datos["inventario"] = Inventario::Paginate(5);
+        $datos["inventario"] = Inventario::Paginate(1);
         return view('inventario.index',$datos);
     }
 
@@ -31,7 +31,7 @@ class InventarioController extends Controller
     {
         $campos = [
         'Nombre'=>'required|string|max:50',
-        'Cantidad'=>'required|float|max:20',
+        'Cantidad'=>'required|numeric',
         'Unidad'=>'required',
         'Fecha'=>'required|date',
         'Proveedor'=>'required|string|max:50',
@@ -71,10 +71,26 @@ class InventarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $campos = [
+            'Nombre'=>'required|string|max:50',
+            'Cantidad'=>'required|numeric',
+            'Unidad'=>'required',
+            'Fecha'=>'required|date',
+            'Proveedor'=>'required|string|max:50',
+            ];
+    
+            $mensaje = [
+                'required'=>'El :attribute es requerido'
+            ];
+    
+            $this->validate($request, $campos, $mensaje);
+
         $datosInventario = request()->except(['_token', '_method']);
         Inventario::where('id','=', $id)->update($datosInventario);
         $inventario=Inventario::findOrFail($id);
-        return view('inventario.edit', compact('inventario'));
+        //return view('inventario.edit', compact('inventario'));
+        return redirect('inventario')->with('mensaje', 'Producto modificado  con exito');
     }
 
     /**
