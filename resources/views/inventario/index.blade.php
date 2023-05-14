@@ -7,12 +7,10 @@
     <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{Session::get('mensaje')}}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true"></span>
     </button>
     </div>
 @endif
-
-
 
 <a href = "{{ url('inventario/create')}}" class="btn btn-success"> Registrar nuevo producto</a>
 <br>
@@ -56,7 +54,7 @@
     </tbody>
 </table>
 
-{{!! $inventario->links() !!}}
+{!! $inventario->links() !!}
 </div>
 
 @endsection
