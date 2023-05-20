@@ -19,5 +19,21 @@ class InventarioSeeder extends Seeder
         $inventario->Fecha = "2023-06-12";
         $inventario->Proveedor = "Nestle";
         $inventario->save();
+
+        $inventario2 = new Inventario();
+        $inventario2->Nombre = "Mermelada de zarzamora";
+        $inventario2->Cantidad = 300;
+        $inventario2->Unidad = "Kg";
+        $inventario2->Fecha = "2022-11-20";
+        $inventario2->Proveedor = "La costeña";
+        $inventario2->save();
+
+        $inventario3 = new Inventario();
+        $inventario3->Nombre = "Leche Santa Clara";
+        $inventario3->Cantidad = 20;
+        $inventario3->Unidad = "Lt";
+        $inventario3->Fecha = "2023-10-01";
+        $inventario3->Proveedor = "Santa Clara";
+        $inventario3->save();
     }
 }
