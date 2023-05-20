@@ -12,6 +12,7 @@ class InventarioSeeder extends Seeder
      */
     public function run(): void
     {
+        /*
         $inventario = new Inventario();
         $inventario->Nombre = "Crema de cacahuate";
         $inventario->Cantidad = 12.54;
@@ -35,5 +36,8 @@ class InventarioSeeder extends Seeder
         $inventario3->Fecha = "2023-10-01";
         $inventario3->Proveedor = "Santa Clara";
         $inventario3->save();
+        */
+
+        Inventario::factory(5)->create();
     }
 }
