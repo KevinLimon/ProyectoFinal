@@ -62,6 +62,7 @@ class InventarioController extends Controller
      */
     public function edit($id)
     {
+        $this->authorize('author', $id);
         $inventario=Inventario::findOrFail($id);
         return view('inventario.edit', compact('inventario'));
     }
@@ -71,6 +72,8 @@ class InventarioController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $this->authorize('author', $id);
 
         $campos = [
             'Nombre'=>'required|string|max:50',
@@ -98,6 +101,8 @@ class InventarioController extends Controller
      */
     public function destroy($id)
     {
+
+        $this->authorize('author', $id);
         Inventario::destroy($id);
         return redirect('inventario')->with('mensaje', 'Producto borrado con exito');
     }
