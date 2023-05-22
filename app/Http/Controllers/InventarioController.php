@@ -14,6 +14,7 @@ class InventarioController extends Controller
     {
         $datos["inventario"] = Inventario::Paginate(1);
         return view('inventario.index',$datos);
+        //return Inventario::all();
     }
 
     /**
@@ -38,7 +39,7 @@ class InventarioController extends Controller
         ];
 
         $mensaje = [
-            'required'=>'El :attribute es requerido'
+            'required'=>'El campo :attribute es requerido'
         ];
 
         $this->validate($request, $campos, $mensaje);
@@ -54,7 +55,7 @@ class InventarioController extends Controller
      */
     public function show(Inventario $inventario)
     {
-        //
+        return $inventario;
     }
 
     /**
@@ -62,7 +63,7 @@ class InventarioController extends Controller
      */
     public function edit($id)
     {
-        $this->authorize('author', $id);
+        //$this->authorize('author', $id);
         $inventario=Inventario::findOrFail($id);
         return view('inventario.edit', compact('inventario'));
     }
@@ -73,7 +74,7 @@ class InventarioController extends Controller
     public function update(Request $request, $id)
     {
 
-        $this->authorize('author', $id);
+        //$this->authorize('author', $id);
 
         $campos = [
             'Nombre'=>'required|string|max:50',
@@ -84,7 +85,7 @@ class InventarioController extends Controller
             ];
     
             $mensaje = [
-                'required'=>'El :attribute es requerido'
+                'required'=>'El campo :attribute es requerido'
             ];
     
             $this->validate($request, $campos, $mensaje);
@@ -102,7 +103,7 @@ class InventarioController extends Controller
     public function destroy($id)
     {
 
-        $this->authorize('author', $id);
+        //$this->authorize('author', $id);
         Inventario::destroy($id);
         return redirect('inventario')->with('mensaje', 'Producto borrado con exito');
     }
